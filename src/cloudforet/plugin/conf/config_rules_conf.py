@@ -591,10 +591,6 @@ CONFIG_RULES = {
         'description': 'Checks if the Application Load Balancer and the Classic Load Balancer have logging enabled. The rule is NON_COMPLIANT if the access_logs.s3.enabled is false or access_logs.S3.bucket is not equal to the s3BucketName that you provided.',
         'trigger_type': 'Configuration changes',
     },
-    '': {
-        'description': '',
-        'trigger_type': 'Configuration changes',
-    },
     'ELB_PREDEFINED_SECURITY_POLICY_SSL_CHECK': {
         'description': 'Checks whether your Classic Load Balancer SSL listeners are using a predefined policy. The rule is only applicable if there are SSL listeners for the Classic Load Balancer.',
         'trigger_type': 'Configuration changes',
@@ -851,6 +847,14 @@ CONFIG_RULES = {
         'description': 'Checks if an Amazon Relational Database Service (Amazon RDS) instance has deletion protection enabled. This rule is NON_COMPLIANT if an Amazon RDS instance does not have deletion protection enabled i.e deletionProtection is set to fals',
         'trigger_type': 'Configuration changes',
     },
+    'RDS_INSTANCE_IAM_AUTHENTICATION_ENABLED': {
+        'description': 'Checks if an Amazon Relational Database Service (Amazon RDS) instance has AWS Identity and Access Management (IAM) authentication enabled. This rule is NON_COMPLIANT if an Amazon RDS instance does not have AWS IAM authentication enabled.',
+        'trigger_type': 'Configuration changes'
+    },
+    'RDS_INSTANCE_PUBLIC_ACCESS_CHECK': {
+      'description': 'Checks whether the Amazon Relational Database Service (RDS) instances are not publicly accessible. The rule is non-compliant if the publiclyAccessible field is true in the instance configuration item.',
+      'trigger_type': 'Configuration changes'
+    },
     'RDS_IN_BACKUP_PLAN': {
         'description': 'Checks whether Amazon RDS database is present in back plans of AWS Backup. The rule is NON_COMPLIANT if Amazon RDS databases are not included in any AWS Backup plan.',
         'trigger_type': 'Periodic',
@@ -1019,7 +1023,6 @@ CONFIG_RULES = {
         'description': 'Checks if Amazon Simple Storage Service (Amazon S3) buckets are protected by a backup plan. The rule is NON_COMPLIANT if the Amazon S3 bucket is not covered by a backup plan.',
         'trigger_type': 'Periodic',
     },
-
     'S3_VERSION_LIFECYCLE_POLICY_CHECK': {
         'description': 'Checks if Amazon Simple Storage Service (Amazon S3) version enabled buckets have lifecycle policy configured. The rule is NON_COMPLIANT if Amazon S3 lifecycle policy is not enabled.',
         'trigger_type': 'Configuration changes',
